@@ -7,11 +7,13 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import com.sentia.test.R
 import com.sentia.test.fragment.DetailFragment
 import com.sentia.test.fragment.ListFragment
 import com.sentia.test.network.model.HouseList
 import com.sentia.test.presenter.ListViewModel
+import kotlinx.android.synthetic.main.activity_list_detail.*
 
 /**
  * Created by don.chummar on 23/3/18.
@@ -64,6 +66,7 @@ class PropertyList : AppCompatActivity() {
 
     private fun updateUI(houseList: HouseList?) {
         if (houseList != null && houseList.data != null) {
+            progressBar?.visibility = View.GONE
             val listFragment = fragmentManager?.findFragmentByTag("list") as ListFragment
             listFragment.updateList(houseList.data)
             if (fragmentManager?.findFragmentByTag("detail") != null) {
