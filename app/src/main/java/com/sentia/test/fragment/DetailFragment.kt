@@ -26,6 +26,10 @@ class DetailFragment : Fragment() {
         return view
     }
 
+
+    /**
+     * fun to update property title (id is same for all property so using title)
+     */
     fun selectedProperty(houseDetails: HouseDetails?) {
         propertyId!!.text = houseDetails!!.title.toString()
     }

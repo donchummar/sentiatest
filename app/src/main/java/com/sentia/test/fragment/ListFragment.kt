@@ -7,7 +7,6 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import butterknife.ButterKnife
 import com.sentia.test.R
 import com.sentia.test.adapter.HouseListAdapter
 import com.sentia.test.interfaces.PropertyListener
@@ -32,10 +31,7 @@ class ListFragment : Fragment(), PropertyListener {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.house_list_fragment, null)
-        ButterKnife.bind(this, view)
-        //sharedModel = ViewModelProviders.of(activity).get(SharedModel::class.java)
-        return view
+        return inflater.inflate(R.layout.house_list_fragment, null)
     }
 
 
@@ -57,6 +53,6 @@ class ListFragment : Fragment(), PropertyListener {
 
 
     override fun onPropertySelected(houseDetails: HouseDetails) {
-        sharedModel!!.select(houseDetails)
+        sharedModel.select(houseDetails)
     }
 }

@@ -57,7 +57,7 @@ class PropertyList : AppCompatActivity() {
 
 
     private fun loadData() {
-        viewModel?.getHouseList()?.observe(this, Observer { houseList ->
+        viewModel.getHouseList().observe(this, Observer { houseList ->
             if (houseList != null) {
                 updateUI(houseList)
             }
@@ -71,7 +71,7 @@ class PropertyList : AppCompatActivity() {
             listFragment.updateList(houseList.data)
             if (fragmentManager?.findFragmentByTag("detail") != null) {
                 val detailFragment = fragmentManager?.findFragmentByTag("detail") as DetailFragment
-                detailFragment?.selectedProperty(houseList.data[0])
+                detailFragment.selectedProperty(houseList.data[0])
             }
         }
     }
